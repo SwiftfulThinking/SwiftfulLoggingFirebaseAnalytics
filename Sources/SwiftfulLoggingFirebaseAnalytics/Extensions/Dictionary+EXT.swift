@@ -8,14 +8,7 @@ import Foundation
 
 extension Dictionary where Key == String {
 
-    mutating func clippingKeys(maxCharacters: Int) {
-        for (key, value) in self where key.count > maxCharacters {
-            updateValue(value, forKey: key.clipped(maxCharacters: maxCharacters))
-            removeValue(forKey: key)
-        }
-    }
-
-    mutating func limitToFirst(maxItems: Int) {
+    mutating func first(upTo maxItems: Int) {
         var counter: Int = 0
         for (key, _) in self {
             if counter <= maxItems {
