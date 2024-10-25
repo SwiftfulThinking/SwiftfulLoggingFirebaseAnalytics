@@ -35,7 +35,15 @@ public struct FirebaseAnalyticsService: LogService {
         Analytics.setUserProperty(email ?? "unknown", forName: "UserEmail")
     }
 
-    public func addUserProperties(dict: SendableDict) {
+    /// Firebase User Properties are only set when isHighPriority == true.
+    public func addUserProperties(dict: SendableDict, isHighPriority: Bool) {
+        // Firebase Analytics only allows up to 25 User Properties,
+        // therefore, only high priority values will be added.
+        //
+        // Note: Firebase also automatically collects a handful of user properties:
+        // https://support.google.com/analytics/answer/9268042
+        guard isHighPriority else { return }
+        
         for (key, value) in dict.dict {
             if let string = value as? String {
                 Analytics.setUserProperty(string, forName: key)

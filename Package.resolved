@@ -1,5 +1,5 @@
 {
-  "originHash" : "870431044f683d58d3e232385ce0eeef4d24c1c72180173ae67041c51b2b2964",
+  "originHash" : "ddf32b96850f127be33a2c0930ae9708c3a88d7f9ef767f469fde4854c6aa801",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -132,8 +132,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwiftfulThinking/SwiftfulLogging.git",
       "state" : {
-        "revision" : "0205f14c408cff7022fb170966591979a544c5c9",
-        "version" : "1.0.1"
+        "revision" : "de4f3398e557ede01bc5407c802eb7769d804e5e",
+        "version" : "1.0.5"
       }
     }
   ],
