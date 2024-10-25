@@ -34,7 +34,9 @@ public struct FirebaseAnalyticsService: LogService {
                     parameters[key] = nil
                 }
             }
-            
+        }
+        
+        for (key, value) in parameters {
             // Keys are limited to 40 characters
             if key.count > 40 {
                 parameters.removeValue(forKey: key)
@@ -42,7 +44,9 @@ public struct FirebaseAnalyticsService: LogService {
                 let newKey = key.clean(maxCharacters: 40)
                 parameters[newKey] = value
             }
-            
+        }
+        
+        for (key, value) in parameters {
             // Values are limited to 100 characters
             if let string = value as? String {
                 parameters[key] = string.clean(maxCharacters: 100)

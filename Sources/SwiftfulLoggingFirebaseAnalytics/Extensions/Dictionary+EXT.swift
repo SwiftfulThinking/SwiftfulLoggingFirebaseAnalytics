@@ -11,11 +11,10 @@ extension Dictionary where Key == String {
     mutating func first(upTo maxItems: Int) {
         var counter: Int = 0
         for (key, _) in self {
-            if counter <= maxItems {
+            if counter >= maxItems {
                 removeValue(forKey: key)
-                counter += 1
             } else {
-                return
+                counter += 1
             }
         }
     }
