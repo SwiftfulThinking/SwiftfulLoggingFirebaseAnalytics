@@ -117,7 +117,7 @@ public struct FirebaseAnalyticsService: LogService {
         case let value as Date:
             return value.formatted(date: .abbreviated, time: .shortened)
         case let array as [Any]:
-            return array.compactMap { convertToString($0) }.joined(separator: ", ")
+            return array.compactMap { convertToString($0) }.sorted().joined(separator: ", ")
         case let value as CustomStringConvertible:
             return value.description
         default:
