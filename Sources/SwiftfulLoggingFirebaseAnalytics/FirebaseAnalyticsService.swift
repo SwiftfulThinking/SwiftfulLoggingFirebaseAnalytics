@@ -71,10 +71,10 @@ public struct FirebaseAnalyticsService: LogService {
         Analytics.setUserID(userId)
         
         if let name {
-            Analytics.setUserProperty(name, forName: "user_name")
+            Analytics.setUserProperty(name, forName: "account_name")
         }
         if let email {
-            Analytics.setUserProperty(email, forName: "user_email")
+            Analytics.setUserProperty(email, forName: "account_email")
         }
     }
 
