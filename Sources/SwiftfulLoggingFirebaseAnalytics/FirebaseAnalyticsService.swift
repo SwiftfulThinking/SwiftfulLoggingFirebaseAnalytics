@@ -5,6 +5,10 @@ import SendableDictionary
 
 public struct FirebaseAnalyticsService: LogService {
     
+    static var appInstanceID: String? {
+        Analytics.appInstanceID()
+    }
+
     public init() {
         
     }

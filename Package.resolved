@@ -123,8 +123,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwiftfulThinking/SwiftfulLogging.git",
       "state" : {
-        "revision" : "1ca47a06d349f592db705c827274601b5747b2a1",
-        "version" : "1.1.0"
+        "revision" : "ecfd102c0bcbc9474d2a598305ae7694d269b5b3",
+        "version" : "1.1.1"
       }
     }
   ],
