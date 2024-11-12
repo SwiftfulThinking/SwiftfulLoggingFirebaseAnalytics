@@ -83,7 +83,7 @@ public struct FirebaseAnalyticsService: LogService {
     }
 
     /// Firebase User Properties are only set when isHighPriority == true and the value can be converted to a String.
-    public func addUserProperties(dict: SendableDict, isHighPriority: Bool) {
+    public func addUserProperties(dict: [String: Any], isHighPriority: Bool) {
         // Firebase Analytics only allows up to 25 User Properties,
         // therefore, only high priority values will be added.
         //
@@ -91,11 +91,11 @@ public struct FirebaseAnalyticsService: LogService {
         // https://support.google.com/analytics/answer/9268042
         guard isHighPriority else { return }
         
-        for (key, value) in dict.dict {
+        for (key, value) in dict {
             // Firebase User Properties only accept String values up to 100 characters
             
             if let string = convertToString(value) {
-                let key = key.clean(maxCharacters: 40)
+                let key = key.clean(maxCharacters: 24)
                 let value = string.clean(maxCharacters: 100)
                 Analytics.setUserProperty(value, forName: key)
             }
