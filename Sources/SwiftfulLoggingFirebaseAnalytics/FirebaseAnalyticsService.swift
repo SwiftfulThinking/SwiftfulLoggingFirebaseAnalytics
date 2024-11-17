@@ -4,7 +4,7 @@ import SwiftfulLogging
 
 public struct FirebaseAnalyticsService: LogService {
     
-    static var appInstanceID: String? {
+    public static var appInstanceID: String? {
         Analytics.appInstanceID()
     }
 
