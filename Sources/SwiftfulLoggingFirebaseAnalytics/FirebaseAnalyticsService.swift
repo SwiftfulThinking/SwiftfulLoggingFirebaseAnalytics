@@ -1,7 +1,6 @@
 import Foundation
 import FirebaseAnalytics
 import SwiftfulLogging
-import SendableDictionary
 
 public struct FirebaseAnalyticsService: LogService {
     
