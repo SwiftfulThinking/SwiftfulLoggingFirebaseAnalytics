@@ -85,15 +85,14 @@ public struct FirebaseAnalyticsService: LogService {
         }
     }
 
-    /// Firebase User Properties are only set when isHighPriority == true and the value can be converted to a String.
+    /// Sets the user properties it receives (those that convert to a String).
+    /// Firebase allows only 25 user properties, so callers should route only
+    /// high-priority properties here (LogManager handles that) — this service no
+    /// longer filters by `isHighPriority` itself.
+    ///
+    /// Note: Firebase also automatically collects a handful of user properties:
+    /// https://support.google.com/analytics/answer/9268042
     public func addUserProperties(dict: [String: Any], isHighPriority: Bool) {
-        // Firebase Analytics only allows up to 25 User Properties,
-        // therefore, only high priority values will be added.
-        //
-        // Note: Firebase also automatically collects a handful of user properties:
-        // https://support.google.com/analytics/answer/9268042
-        guard isHighPriority else { return }
-        
         for (key, value) in dict {
             // Firebase User Properties only accept String values up to 100 characters
             
